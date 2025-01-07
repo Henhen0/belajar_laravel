@@ -31,6 +31,13 @@ Route::get('/contact' ,function(){
 });
 
 
+Route::get('/siswa' ,function(){
+
+    $data_siswa = ['hendri','nafis','dudi','sandi','andrian'];
+
+    return view('tampil',compact('data_siswa'));
+});
+
 //route parameter
 route::get('/tes/{nama2}/{tmptlahir2}/{jk2}/{agama2}/{alamat2}', function($nama,$tmpatlahir,$jk,$agama,$alamat){
     return "Nama :".$nama."<br>" .
