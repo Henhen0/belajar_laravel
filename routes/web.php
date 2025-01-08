@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Posts;
+use App\Models\barang;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -104,7 +105,9 @@ route::get('/latihan/{nama}/{tel}/{jb}/{nb}/{jumlah}/{pembayaran}', function($nm
     }
     
 
-    
+
+
+
 
 
     return "Nama Pembeli :". $nmpembeli ."<br>".
@@ -120,4 +123,19 @@ route::get('/latihan/{nama}/{tel}/{jb}/{nb}/{jumlah}/{pembayaran}', function($nm
            "Total Pembayaran : Rp.". number_format($total-$cashback-$potongan) . "<br>".
            "========================";
 
+});
+
+
+//routing menggunakan model
+route::get('/post',function(){
+
+    $post = Posts::all();
+    return view('tampil_post',compact('post'));
+});
+
+//routing barang
+route::get('/barang',function(){
+
+    $barangs = barang::all();
+    return view('tampil_barang',compact('barangs'));
 });
