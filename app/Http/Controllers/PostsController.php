@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Posts;
+use App\Models\barang;
 
 class PostsController extends Controller
 {
@@ -11,5 +12,11 @@ class PostsController extends Controller
         
         $post = Posts::all();
         return view('tampil_post', compact('post'));
+    }
+
+    public function menampilkan2(){
+        
+        $barangs = barang::all();
+        return view('tampil_barang', compact('barangs'));
     }
 }

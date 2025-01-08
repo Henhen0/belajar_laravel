@@ -129,14 +129,15 @@ route::get('/latihan/{nama}/{tel}/{jb}/{nb}/{jumlah}/{pembayaran}', function($nm
 
 //routing menggunakan model
 Route::get('/post', [PostsController::class,'menampilkan']);
+Route::get('/barang', [PostsController::class,'menampilkan2']);
 
 
 
-//routing barang
-route::get('/barang',function(){
+// //routing barang
+// route::get('/barang',function(){
 
-    // $barangs = barang::where('title','like','%Tips%')->get();
-    $barangs = barang::where('id',2)->get();
-    return view('tampil_barang',compact('barangs'));
-});
+//     // $barangs = barang::where('title','like','%Tips%')->get();
+//     $barangs = barang::where('id',2)->get();
+//     return view('tampil_barang',compact('barangs'));
+// });
 
