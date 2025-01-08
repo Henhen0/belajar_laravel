@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Posts;
+use App\Http\Controllers\PostsController;
 use App\Models\barang;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -127,15 +128,15 @@ route::get('/latihan/{nama}/{tel}/{jb}/{nb}/{jumlah}/{pembayaran}', function($nm
 
 
 //routing menggunakan model
-route::get('/post',function(){
+Route::get('/post', [PostsController::class,'menampilkan']);
 
-    $post = Posts::all();
-    return view('tampil_post',compact('post'));
-});
+
 
 //routing barang
 route::get('/barang',function(){
 
-    $barangs = barang::all();
+    // $barangs = barang::where('title','like','%Tips%')->get();
+    $barangs = barang::where('id',2)->get();
     return view('tampil_barang',compact('barangs'));
 });
+
